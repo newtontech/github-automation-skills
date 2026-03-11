@@ -1,0 +1,11 @@
+[Unit]
+Description=Software Quality Scan - Analyze repos and create quality issues
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/yhm/.openclaw/scripts/software-quality-scan.sh
+User=yhm
+Environment=PATH=/home/yhm/.local/bin:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Software Quality Scan Timer (every 23 minutes)
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=23min
+Unit=software-quality-scan.service
+
+[Install]
+WantedBy=timers.target

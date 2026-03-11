@@ -1,0 +1,10 @@
+[Unit]
+Description=GitHub Auto PR Timer (every 53 minutes)
+
+[Timer]
+OnBootSec=8min
+OnUnitActiveSec=53min
+Unit=github-auto-pr.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=GitHub Auto PR - Create PRs for issues with 3+ comments
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/yhm/.openclaw/scripts/github-auto-pr.sh
+User=yhm
+Environment=PATH=/home/yhm/.local/bin:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=multi-user.target

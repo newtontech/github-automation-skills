@@ -1,0 +1,71 @@
+{
+  "github": {
+    "token": "ghp_xxxxxxxxxxxxxxxxxxxx",
+    "username": "your-username",
+    "exclude_repos": [
+      "private-repo-1",
+      "archived-repo-2"
+    ],
+    "exclude_forks": true
+  },
+  "feishu": {
+    "enabled": true,
+    "target": "chat:oc_xxxxxxxxxxxxx",
+    "webhook_url": "https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxx"
+  },
+  "quality_scan": {
+    "interval_minutes": 23,
+    "standards": [
+      "SOLID",
+      "DRY",
+      "KISS",
+      "YAGNI",
+      "CODE_COVERAGE",
+      "DOCUMENTATION",
+      "ERROR_HANDLING",
+      "SECURITY",
+      "PERFORMANCE",
+      "TESTABILITY",
+      "MAINTAINABILITY",
+      "COMPLEXITY",
+      "DEPENDENCY",
+      "LOGGING",
+      "API_DESIGN",
+      "DATABASE",
+      "CACHING",
+      "CONFIG",
+      "MONITORING",
+      "FAULT_TOLERANCE"
+    ]
+  },
+  "random_comment": {
+    "interval_minutes": 37,
+    "weight_decay_days": 30,
+    "max_issues_per_repo": 20
+  },
+  "pr_review": {
+    "interval_minutes": 39,
+    "review_templates": [
+      "code_quality",
+      "security",
+      "performance",
+      "best_practices"
+    ]
+  },
+  "auto_pr": {
+    "interval_minutes": 53,
+    "min_comments": 3,
+    "auto_merge": false
+  },
+  "contribution": {
+    "cron": "11 5 * * *",
+    "target_repo": "owner/repo",
+    "idea_categories": [
+      "feature",
+      "quality",
+      "security",
+      "performance",
+      "docs"
+    ]
+  }
+}

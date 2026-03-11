@@ -1,0 +1,10 @@
+[Unit]
+Description=GitHub PR Review Timer (every 39 minutes)
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=39min
+Unit=github-pr-review.service
+
+[Install]
+WantedBy=timers.target

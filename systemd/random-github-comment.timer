@@ -1,0 +1,12 @@
+[Unit]
+Description=Random GitHub Issue Comment Timer (every 37 minutes)
+
+[Timer]
+# 启动后 5 分钟开始第一次运行
+OnBootSec=5min
+# 每次运行后 37 分钟再次运行
+OnUnitActiveSec=37min
+Unit=random-github-comment.service
+
+[Install]
+WantedBy=timers.target
