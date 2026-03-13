@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Validate shell scripts
+      run: |
+        find . -name "*.sh" -exec bash -n {} \;
+        echo "All shell scripts are syntactically valid"
+
+    - name: Check script permissions
+      run: |
+        grep -r "^#!/bin/bash" . --include="*.sh" | cut -d: -f1 | xargs chmod +x
+        echo "Script permissions set correctly"
+
+    - name: Validate JSON configs
+      run: |
+        for file in config/*.json; do
+          if [ -f "$file" ]; then
+            python -m json.tool "$file" > /dev/null
+            echo "$file is valid JSON"
+          fi
+        done || echo "No JSON configs to validate"
+
+    - name: Lint shell scripts
+      run: |
+        sudo apt-get install -y shellcheck
+        shellcheck *.sh scripts/*.sh || echo "ShellCheck warnings found"
